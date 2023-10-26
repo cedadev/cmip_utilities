@@ -8,7 +8,11 @@ from dreqPy import dreq
 ## fields returned by default (fields=*) (Oct 2023):
 ## ['_timestamp', '_version_', 'access', 'activity_drs', 'activity_id', 'cf_standard_name', 'citation_url', 'data_node', 'data_specs_version', 'dataset_id_template_', 'datetime_start', 'datetime_stop', 'directory_format_template_', 'experiment_id', 'experiment_title', 'frequency', 'further_info_url', 'grid', 'grid_label', 'id', 'index_node', 'instance_id', 'institution_id', 'latest', 'master_id', 'member_id', 'mip_era', 'model_cohort', 'nominal_resolution', 'number_of_aggregations', 'number_of_files', 'pid', 'product', 'project', 'realm', 'replica', 'retracted', 'score', 'size', 'source_id', 'source_type', 'sub_experiment_id', 'table_id', 'title', 'type', 'url', 'variable', 'variable_id', 'variable_long_name', 'variable_units', 'variant_label', 'version', 'xlink']
 
-e_id = json.load( open( 'CMIP6_CVs/CMIP6_experiment_id.json', 'r' ) )['experiment_id']
+import localConfig
+
+cv_dir = localConfig.config['directories']['cmip6_cvs']
+
+e_id = json.load( open( '%s/CMIP6_experiment_id.json' % cv_dir, 'r' ) )['experiment_id']
 
 
 class UrlOpenError(Exception):
